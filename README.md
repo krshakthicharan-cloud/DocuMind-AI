@@ -1,5 +1,3 @@
-@'
-
 \# DocuMind AI
 
 
@@ -8,7 +6,15 @@
 
 
 
-DocuMind AI is a document understanding system designed to help users extract and understand useful information from documents containing text, tables, images, and scanned content.
+\*\*Team 14\*\*
+
+
+
+DocuMind AI is a document intelligence system that allows users to upload PDF documents, process their content, retrieve relevant information, and obtain document-grounded answers with source references.
+
+
+
+\---
 
 
 
@@ -16,167 +22,67 @@ DocuMind AI is a document understanding system designed to help users extract an
 
 
 
-Users often struggle to extract and understand useful information from documents that contain a combination of text, tables, images, or scanned content.
+> “Users often struggle to extract and understand useful information from documents that contain a combination of text, tables, images, or scanned content.”
 
 
 
-\## Objectives
+Traditional document processing can require users to manually search through large documents. Scanned pages may also contain text that cannot be searched directly.
 
 
 
-\- Extract text from PDF documents.
+DocuMind AI aims to simplify this process by allowing users to upload a PDF and ask questions about its contents.
 
-\- Detect tables and images.
 
-\- Support OCR for scanned documents.
 
-\- Split documents into searchable chunks.
+\---
 
-\- Retrieve relevant information using a RAG pipeline.
 
-\- Provide document-grounded answers.
 
-\- Use an AI agent to determine the appropriate retrieval action.
+\## Project Overview
 
-\- Provide REST API access through FastAPI.
 
-\- Provide an interactive interface through Gradio.
 
-\- Prepare the system for Nexus AI LLM integration.
+DocuMind AI combines document processing, OCR, retrieval, prompt engineering, and an AI-agent architecture to provide a simple question-answering interface for PDF documents.
 
 
 
-\## Key Features
+The system processes the uploaded document, creates searchable content chunks, retrieves relevant information for a user's question, and generates a document-grounded response with source pages.
 
 
 
-\### PDF Text Extraction
-
-
-
-Text is extracted from PDF pages using `pypdf`.
-
-
-
-\### Document Analysis
-
-
-
-The system reports:
-
-
-
-\- Number of pages
-
-\- Number of detected tables
-
-\- Number of detected images
-
-
-
-\### OCR
-
-
-
-Scanned documents can be processed using:
-
-
-
-\- PyMuPDF
-
-\- Tesseract OCR
-
-\- pytesseract
-
-
-
-\### Table Detection
-
-
-
-PDF tables are detected using PyMuPDF table detection.
-
-
-
-\### Image Detection and Extraction
-
-
-
-Embedded images can be detected and extracted from PDF documents for multimodal processing.
-
-
-
-\### Multimodal Document Representation
-
-
-
-The system maintains a document representation containing:
-
-
-
-\- Pages
-
-\- Tables
-
-\- Images
-
-\- OCR results
-
-\- Searchable chunks
-
-
-
-\### RAG Pipeline
-
-
-
-The document processing and retrieval flow is:
+\### System Flow
 
 
 
 ```text
 
-PDF
+PDF Document
 
-&#x20;|
+&#x20;    ↓
 
-&#x20;v
+Document Processing
 
-Text Extraction
+&#x20;    ↓
 
-&#x20;|
+Text Extraction + OCR
 
-&#x20;v
+&#x20;    ↓
 
-Document Analysis
+Table/Image Detection
 
-&#x20;|
-
-&#x20;v
-
-OCR
-
-&#x20;|
-
-&#x20;v
+&#x20;    ↓
 
 Chunking
 
-&#x20;|
+&#x20;    ↓
 
-&#x20;v
+RAG Retrieval
 
-Retrieval
+&#x20;    ↓
 
-&#x20;|
+AI Agent
 
-&#x20;v
+&#x20;    ↓
 
-Relevant Context
-
-&#x20;|
-
-&#x20;v
-
-Answer Generation
+Answer + Source Pages
 
