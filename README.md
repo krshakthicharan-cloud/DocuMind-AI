@@ -86,3 +86,19 @@ AI Agent
 
 Answer + Source Pages
 
+
+
+
+
+\## Demo Video
+
+
+
+A 2–5 minute demonstration of DocuMind AI is available below.
+
+
+
+\*\*Demo Video:\*\*  
+
+\[Watch the DocuMind AI Demo](https://drive.google.com/file/d/1m7VyaEmciVWYTjQmgabQ-kDX1bXPcPVG/view?usp=drive\_link)
+
