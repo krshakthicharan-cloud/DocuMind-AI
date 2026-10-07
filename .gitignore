@@ -1,0 +1,7 @@
+﻿venv/
+__pycache__/
+*.pyc
+extracted_images/
+.env
+*.key
+*.pem
