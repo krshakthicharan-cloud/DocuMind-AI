@@ -83,21 +83,33 @@ def ask_question(request: QuestionRequest):
             detail="Please upload a document first."
         )
 
-    results = rag.search(
-        request.question,
-        top_k=3
-    )
+    try:
+        results = rag.search(
+            request.question,
+            top_k=3
+        )
 
-    answer = generate_mock_answer(
-        request.question,
-        results
-    )
+        answer = generate_answer(
+            request.question,
+            results
+        )
 
-    return {
-        "question": request.question,
-        "answer": answer,
-        "sources": [
-            result["page"]
-            for result in results
-        ]
-    }
+        return {
+            "question": request.question,
+            "answer": answer,
+            "sources": list(dict.fromkeys(
+                result["page"] for result in results
+            ))
+        }
+
+    except HTTPException:
+        raise
+
+    except Exception:
+        raise HTTPException(
+            status_code=502,
+            detail=(
+                "AI answer generation failed. "
+                "Check the server configuration and logs."
+            )
+        )
