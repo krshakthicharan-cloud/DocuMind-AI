@@ -4,8 +4,7 @@ import tempfile
 import os
 
 from rag.rag_pipeline import RAGPipeline
-from llm.openai_llm import generate_answer
-
+from llm.openrouter_llm import generate_answer
 
 app = FastAPI(
     title="DocuMind AI API",
