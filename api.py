@@ -25,7 +25,7 @@ def root():
     return {
         "application": "DocuMind AI",
         "status": "running",
-        "llm": "mock - Nexus pending"
+        "llm": "OpenAI"
     }
 
 
