@@ -88,11 +88,7 @@ def ask_question(request: QuestionRequest):
             top_k=3
         )
 
-        answer = generate_answer(
-            request.question,
-            results
-        )
-
+        answer = generate_answer(request.question, results)
         return {
             "question": request.question,
             "answer": answer,
