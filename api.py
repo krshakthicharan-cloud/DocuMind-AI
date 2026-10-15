@@ -4,7 +4,7 @@ import tempfile
 import os
 
 from rag.rag_pipeline import RAGPipeline
-from llm.mock_llm import generate_mock_answer
+from llm.openai_llm import generate_answer
 
 
 app = FastAPI(
