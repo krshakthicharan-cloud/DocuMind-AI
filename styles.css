@@ -1,0 +1,79 @@
+* { box-sizing: border-box; }
+:root {
+  color-scheme: dark;
+  --bg: #101012;
+  --panel: #252528;
+  --panel-2: #202023;
+  --border: #414148;
+  --text: #f4f4f6;
+  --muted: #b6b6bf;
+  --orange: #ff5a0a;
+  --orange-hover: #e94b00;
+  --blue: #5aa7ff;
+  --green: #57d98b;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.app { width: min(100% - 32px, 1100px); margin: 22px auto 36px; }
+.brand { margin-bottom: 26px; }
+.brand h1 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 8px; letter-spacing: -.5px; }
+.brain { color: #ff80c8; }
+.brand h2 { font-size: 16px; margin: 0 0 5px; }
+.brand p { color: var(--muted); margin: 0; font-size: 13px; }
+.section { margin: 22px 0; }
+.section > h2 { font-size: 19px; margin: 0 0 12px; }
+.panel { background: var(--panel); border: 1px solid #34343a; border-radius: 5px; padding: 12px; margin: 10px 0; }
+.upload-zone {
+  min-height: 170px; border: 1px dashed #55555e; border-radius: 4px;
+  background: #29292d; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 4px; text-align: center; cursor: pointer; padding: 22px;
+  transition: border-color .15s, background .15s;
+}
+.upload-zone.dragover { border-color: var(--orange); background: #342a25; }
+.upload-zone input { display: none; }
+.upload-icon { font-size: 28px; line-height: 1; color: #ddd; }
+.upload-link { color: #9fcaff; font-weight: 650; }
+.upload-zone small { color: var(--muted); margin-top: 5px; overflow-wrap: anywhere; }
+.primary {
+  width: 100%; border: 0; border-radius: 5px; background: var(--orange); color: #fff;
+  font: inherit; font-weight: 750; padding: 12px 16px; cursor: pointer; margin: 2px 0 0;
+  transition: background .15s, transform .1s;
+}
+.primary:hover { background: var(--orange-hover); }
+.primary:active { transform: translateY(1px); }
+.primary:disabled { opacity: .6; cursor: wait; }
+.analysis-panel h3, .panel h3 { margin: 0 0 10px; font-size: 14px; }
+.inset { min-height: 48px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 4px; padding: 12px; overflow-wrap: anywhere; }
+.inset p { margin: 0 0 8px; }
+.inset p:last-child { margin-bottom: 0; }
+.muted { color: var(--muted); }
+.good { color: var(--green); }
+.error { color: #ff8b8b; }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 18px; }
+.stat { color: #e8e8ed; }
+.stat strong { color: #fff; }
+.question-panel label { display: block; font-size: 12px; margin-bottom: 7px; color: #dddde3; }
+textarea {
+  width: 100%; resize: vertical; min-height: 78px; border: 1px solid var(--border);
+  background: #1c1c1f; color: var(--text); border-radius: 4px; padding: 11px 12px;
+  font: inherit; outline: none;
+}
+textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 2px #5aa7ff22; }
+.answer { min-height: 115px; white-space: pre-wrap; }
+.sources-heading { margin-top: 16px !important; }
+.source-chip { display: inline-block; border: 1px solid #55555e; border-radius: 20px; padding: 3px 9px; margin: 3px 5px 3px 0; color: #d8e9ff; background: #292d34; }
+hr { border: 0; border-top: 1px solid #4a4a50; margin: 26px 0; }
+.architecture h2 { font-size: 17px; margin: 0 0 12px; }
+.architecture h3 { font-size: 14px; margin: 20px 0 5px; }
+.flow { font-weight: 700; line-height: 1.9; }
+.footnote, footer { color: var(--muted); font-size: 12px; }
+footer { border-top: 1px solid #29292d; padding-top: 15px; margin-top: 26px; text-align: center; }
+.toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: #303036; border: 1px solid #55555e; padding: 10px 15px; border-radius: 6px; display: none; max-width: calc(100% - 24px); box-shadow: 0 8px 28px #0007; }
+@media (min-width: 720px) { .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .app { width: min(100% - 20px, 1100px); margin-top: 14px; } .panel { padding: 9px; } .upload-zone { min-height: 145px; } }

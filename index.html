@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DocuMind AI — Multimodal Document Intelligence</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="brand">
+      <h1><span class="brain">🧠</span> DocuMind AI</h1>
+      <h2>Multimodal Document Intelligence</h2>
+      <p>Upload a PDF, process it, and ask questions about its content using Retrieval-Augmented Generation (RAG).</p>
+    </header>
+
+    <section class="section">
+      <h2>📄 Document Processing</h2>
+      <div class="panel">
+        <label class="upload-zone" id="dropZone" for="pdfFile">
+          <input id="pdfFile" type="file" accept="application/pdf,.pdf">
+          <span class="upload-icon">⇧</span>
+          <strong id="uploadTitle">Drop PDF file here</strong>
+          <span>— or —</span>
+          <span class="upload-link">Click to upload</span>
+          <small id="fileName">PDF files only</small>
+        </label>
+      </div>
+      <button class="primary" id="processBtn">▣ Process Document</button>
+      <div class="panel analysis-panel">
+        <h3>📊 Document Analysis</h3>
+        <div class="inset" id="analysis">
+          <p class="muted">Upload a PDF and select <b>Process Document</b> to see its analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>💬 Ask DocuMind</h2>
+      <div class="panel question-panel">
+        <label for="question">Your Question</label>
+        <textarea id="question" rows="3" placeholder="Ask a question about your uploaded document..."></textarea>
+      </div>
+      <button class="primary" id="askBtn">🔎 Ask DocuMind</button>
+      <div class="panel">
+        <h3>🤖 Answer</h3>
+        <div class="inset answer" id="answer"><p class="muted">Your answer will appear here after you ask a question.</p></div>
+        <h3 class="sources-heading">📚 Sources</h3>
+        <div class="inset" id="sources"><p class="muted">Source pages will appear here.</p></div>
+      </div>
+    </section>
+
+    <hr>
+    <section class="architecture">
+      <h2>🏗️ System Architecture</h2>
+      <p class="flow">PDF → Document Analyzer → Chunking → RAG → Agent → Prompt → LLM → Answer + Sources</p>
+      <h3>🧠 LLM Status</h3>
+      <p id="llmStatus">Checking API status…</p>
+      <p class="footnote">Keep your API keys on the backend. This page connects to your FastAPI service and never needs to contain a secret key.</p>
+    </section>
+    <footer>DocuMind AI · Multimodal Document Intelligence</footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
